@@ -1,0 +1,4 @@
+Clean up unused files.
+Clean up excess unused features.
+Create a reset password artisan command to replace the Reset/Forgot password controllers.
+Decide where to redirect on login/logout.

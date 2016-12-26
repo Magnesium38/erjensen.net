@@ -19,8 +19,7 @@ class Kernel extends ConsoleKernel {
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
-    protected function schedule(Schedule $schedule)
-    {
+    protected function schedule(Schedule $schedule) {
 
     }
 
@@ -29,8 +28,7 @@ class Kernel extends ConsoleKernel {
      *
      * @return void
      */
-    protected function commands()
-    {
+    protected function commands() {
         require base_path('routes/console.php');
     }
 }
