@@ -17,6 +17,7 @@ $this->post('login', 'Auth\LoginController@login');
 $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
 use Illuminate\Http\Request;
+
 Route::any('/test', function (Request $request) {
     return $request;
 });
