@@ -1,15 +1,14 @@
 {
-    "private": true,
-    "scripts": {
-        "prod": "gulp --production",
-        "dev": "gulp watch"
-    },
-    "devDependencies": {
-        "axios": "^0.15.3",
-        "gulp": "^3.9.1",
-        "laravel-elixir": "^6.0.0-9",
-        "laravel-elixir-vue-2": "^0.2.0",
-        "laravel-elixir-webpack-official": "^1.0.2",
-        "vue": "^2.0.1"
-    }
+  "private": true,
+  "scripts": {
+    "webpack": "cross-env NODE_ENV=development webpack --progress --hide-modules",
+    "dev": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules",
+    "hmr": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
+    "production": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "devDependencies": {
+    "axios": "^0.15.3",
+    "laravel-mix": "^0.3.0",
+    "vue": "^2.0.1"
+  }
 }
