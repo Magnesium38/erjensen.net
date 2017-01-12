@@ -3,7 +3,7 @@
 use App\Models\User;
 use Illuminate\Console\Command;
 
-class CreateAdmin extends Command {
+class MakeAdmin extends Command {
     /**
      * The name and signature of the console command.
      *
@@ -16,12 +16,10 @@ class CreateAdmin extends Command {
      *
      * @var string
      */
-    protected $description = 'Makes an admin user.';
+    protected $description = 'Create an admin user';
 
     /**
      * Execute the console command.
-     *
-     * @return mixed
      */
     public function handle() {
         $username = $this->ask("Username");

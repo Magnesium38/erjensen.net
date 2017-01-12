@@ -10,7 +10,16 @@ class Kernel extends ConsoleKernel {
      * @var array
      */
     protected $commands = [
-        Commands\CreateAdmin::class,
+        // Override some of the default Artisan commands to use my stubs.
+        Commands\MakeController::class,
+        Commands\MakeModel::class,
+        Commands\MakeMigration::class,
+
+        // The commands associated with admin users.
+        Commands\MakeAdmin::class,
+
+        // A helper command that wraps the controller, model, and migration.
+        Commands\MakeApiModel::class,
     ];
 
     /**
