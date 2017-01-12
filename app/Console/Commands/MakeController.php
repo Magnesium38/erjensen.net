@@ -11,12 +11,14 @@ class MakeController extends ControllerMakeCommand {
      */
     protected function getStub() {
         if ($this->option('model')) {
-            return base_path("resources/stubs/controller/model.stub");
-        } elseif ($this->option('resource')) {
-            return base_path("resources/stubs/controller/resource.stub");
+            return base_path('resources/stubs/controller/model.stub');
+        } elseif ($this->option('api')) {
+            return base_path('resources/stubs/controller/api.stub');
+        } elseif($this->option('resource')) {
+            return base_path('resources/stubs/controller/resource.stub');
         }
 
-        return base_path("resources/stubs/controller/plain.stub");
+        return base_path('resources/stubs/controller/plain.stub');
     }
 
     /**
@@ -40,7 +42,7 @@ class MakeController extends ControllerMakeCommand {
     protected function getOptions() {
         $options = parent::getOptions();
 
-        $options[] = ["api", "a", InputOption::VALUE_NONE, "Generate an API controller class."];
+        $options[] = ['api', 'a', InputOption::VALUE_NONE, 'Generate an API controller class.'];
 
         usort($options, function ($a, $b) {
             return strcmp($a[0], $b[0]);

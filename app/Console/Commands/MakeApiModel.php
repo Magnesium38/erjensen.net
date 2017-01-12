@@ -5,11 +5,11 @@ use Symfony\Component\Console\Input\InputArgument;
 
 class MakeApiModel extends GeneratorCommand {
     /**
-     * The name and signature of the console command.
+     * The name of the console command.
      *
      * @var string
      */
-    protected $signature = 'make:apimodel';
+    protected $name = 'make:apimodel';
 
     /**
      * The console command description.
@@ -29,13 +29,12 @@ class MakeApiModel extends GeneratorCommand {
 
     public function handle() {
         $this->call("make:model", [
-            "name" => $this->argument["name"],
-            "-a",
-            "-c",
-            "-m",
-            "-r",
+            "name" => $this->argument("name"),
+            "-a" => true,
+            "-c" => true,
+            "-m" => true,
+            "-r" => true,
         ]);
-        $this->info("Hi");
     }
 
     /**
