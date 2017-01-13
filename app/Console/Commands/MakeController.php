@@ -10,10 +10,10 @@ class MakeController extends ControllerMakeCommand {
      * @return string
      */
     protected function getStub() {
-        if ($this->option('model')) {
-            return base_path('resources/stubs/controller/model.stub');
-        } elseif ($this->option('api')) {
+        if ($this->option('api')) {
             return base_path('resources/stubs/controller/api.stub');
+        } elseif ($this->option('model')) {
+            return base_path('resources/stubs/controller/model.stub');
         } elseif($this->option('resource')) {
             return base_path('resources/stubs/controller/resource.stub');
         }
