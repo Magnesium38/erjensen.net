@@ -2,3 +2,6 @@ Clean up unused files.
 Clean up excess unused features.
 Create a reset password artisan command to replace the Reset/Forgot password controllers.
 Decide where to redirect on login/logout.
+
+Laravel Passport would be good to use.
+Possibly use Laravel Dusk. (Probably excessive for this project.)
