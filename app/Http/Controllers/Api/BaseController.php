@@ -12,6 +12,32 @@ abstract class BaseController extends Controller {
     protected $model;
     protected $maxLimit = 100;
 
+    protected static $routePrefix = null;
+
+    /**
+     * Returns the string name of the called class.
+     * This makes routing easier.
+     *
+     * @return string
+     */
+    public static function getClassName() {
+        return substr(strrchr(get_called_class(), '\\'), 1);
+    }
+
+    /**
+     * Returns the prefix that the controller's routes should exist on.
+     *
+     * @return string
+     * @throws \Exception
+     */
+    public static function getRoutePrefix() {
+        if (is_null(static::$routePrefix)) {
+            throw new \Exception('Child classes must override static::$routePrefix to be properly used when routing.');
+        }
+
+        return static::$routePrefix;
+    }
+
     /**
      * A helper method that wraps around a model's count method.
      *

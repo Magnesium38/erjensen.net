@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,12 +11,23 @@ use Illuminate\Http\Request;
 |
 */
 
-/*
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
-*/
+$controllers = [
 
-Route::any('/test', function (Request $request) {
-    return $request;
+];
+
+Route::group(['namespace' => 'Api'], function () use ($controllers) {
+    foreach ($controllers as $controllerClass) {
+        $controller = $controllerClass::getClassName();
+
+        Route::group(['prefix' => $controllerClass::getRoutePrefix()], function () use ($controller) {
+            Route::get('/', "{$controller}@index");
+            Route::get('{id}', "{$controller}@show");
+
+            Route::group(['middleware' => 'auth:api'], function () use ($controller) {
+                Route::post('/', "{$controller}@store");
+                Route::match(['post', 'patch'], '{id}', "{$controller}@update");
+                Route::delete('{id}', "{$controller}@destroy");
+            });
+        });
+    }
 });
