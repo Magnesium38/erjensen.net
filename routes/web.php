@@ -16,8 +16,9 @@ $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
 $this->post('login', 'Auth\LoginController@login');
 $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
-use Illuminate\Http\Request;
 
-Route::any('/test', function (Request $request) {
-    return $request;
+Route::get('/test', function() {
+    $endpoints = \App\Models\Endpoint::all();
+
+    return view('test', ['endpoints' => $endpoints]);
 });

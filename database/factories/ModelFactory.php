@@ -21,3 +21,14 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Models\Endpoint::class, function (Faker\Generator $faker) {
+    $urlParts = explode('/', $faker->url);
+
+    return [
+        'action' => $faker->name,
+        'description' => $faker->sentence(),
+        'method' => 'GET',
+        'route' => array_pop($urlParts),
+    ];
+});
