@@ -63,6 +63,7 @@ class MakeModel extends GeneratorCommand {
      * @return string
      */
     protected function getStub() {
+
         return base_path("resources/stubs/model/plain.stub");
     }
 
@@ -73,6 +74,9 @@ class MakeModel extends GeneratorCommand {
      * @return string
      */
     protected function getDefaultNamespace($rootNamespace) {
+        if ($this->option('api')) {
+            return $rootNamespace . '\Models\Api';
+        }
         return $rootNamespace . '\Models';
     }
 
@@ -83,7 +87,7 @@ class MakeModel extends GeneratorCommand {
      */
     protected function getOptions() {
         return [
-            ['api', 'a', InputOption::VALUE_NONE, 'Indicates if the generated controller should be an API controller'],
+            ['api', 'a', InputOption::VALUE_NONE, 'Indicates the model should be an API model and if a controller is generated, it should be an API controller.'],
             ['migration', 'm', InputOption::VALUE_NONE, 'Create a new migration file for the model.'],
             ['controller', 'c', InputOption::VALUE_NONE, 'Create a new controller for the model.'],
             ['resource', 'r', InputOption::VALUE_NONE, 'Indicates if the generated controller should be a resource controller'],

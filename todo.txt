@@ -5,3 +5,6 @@ Decide where to redirect on login/logout.
 
 Laravel Passport would be good to use.
 Possibly use Laravel Dusk. (Probably excessive for this project.)
+
+Revisit api versioning.
+    Current idea: Controllers\Api\V1 as namespace and route in base namespace.
