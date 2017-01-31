@@ -37,6 +37,6 @@ class Endpoint extends BaseModel {
             return '<pre><code></code></pre>';
         }
 
-        static::
+
     }
 }

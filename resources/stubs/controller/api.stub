@@ -1,6 +1,6 @@
 <?php namespace DummyNamespace;
 
-use App\Models\DummyModelClass;
+use App\Models\Api\DummyModelClass;
 
 class DummyClass extends BaseController {
     protected $model = DummyModelClass::class;

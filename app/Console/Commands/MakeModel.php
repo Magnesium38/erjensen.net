@@ -52,7 +52,9 @@ class MakeModel extends GeneratorCommand {
                 'name' => "{$controller}Controller",
                 '--resource' => $this->option('resource'),
                 '--api' => $this->option('api'),
-                '--model' => $controller,
+                '--model' => ($this->option('api')) ?
+                    'App\\Models\\Api\\'. $controller :
+                    'App\\Models\\'. $controller,
             ]);
         }
     }

@@ -1,7 +1,9 @@
 <?php namespace App\Http\Controllers\Api;
 
+use App\Models\Api\BaseModel;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -75,7 +77,7 @@ abstract class BaseController extends Controller {
      * @return Collection|Model
      */
     private function createHelper(array $attributes = []) {
-        return call_user_func($this->model . '::create', ['attributes' => $attributes]);
+        return call_user_func($this->model . '::create', $attributes);
     }
 
     /**
@@ -86,7 +88,7 @@ abstract class BaseController extends Controller {
      * @return Collection|Model
      */
     private function findOrFailHelper($id, $columns = ['*']) {
-        return call_user_func($this->model . '::findOrFail', ['id' => $id, 'columns' => $columns]);
+        return call_user_func($this->model . '::findOrFail', $id, $columns);
     }
 
     /**
@@ -96,7 +98,7 @@ abstract class BaseController extends Controller {
      * @return int
      */
     private function destroyHelper($ids) {
-        return call_user_func($this->model . '::destroyHelper', ['ids' => $ids]);
+        return call_user_func($this->model . '::destroy', ['ids' => $ids]);
     }
 
     /**
@@ -136,7 +138,12 @@ abstract class BaseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        $model = $this->createHelper($request->all());
+        if ($request->attributes->get('isDemo')) {
+            $model = new $this->model;
+            $model->fill($request->all());
+        } else {
+            $model = $this->createHelper($request->all());
+        }
         return $this->responsifyModel($model);
     }
 
@@ -173,7 +180,12 @@ abstract class BaseController extends Controller {
             $response = $response->get(0);
         }
 
-        $response->update($request->all());
+        if ($request->attributes->get('isDemo')) {
+            $response->fill($request->all());
+        } else {
+            $response->update($request->all());
+        }
+
         return $this->responsifyModel($response);
     }
 
@@ -183,11 +195,22 @@ abstract class BaseController extends Controller {
      * Returns HTTP 204 No Content on success.
      * Returns HTTP 422 Unprocessable Entity on fail.
      *
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
-        $destroyed = $this->destroyHelper($id);
+    public function destroy(Request $request, $id) {
+        if ($request->attributes->get('isDemo')) {
+            try {
+                $destroyed = 1;
+                $this->findOrFailHelper($id);
+            } catch (ModelNotFoundException $e) {
+                $destroyed = 0;
+            }
+        } else {
+            $destroyed = $this->destroyHelper($id);
+        }
+
         if ($destroyed > 0) {
             return response()->make(null, 204);
         }
