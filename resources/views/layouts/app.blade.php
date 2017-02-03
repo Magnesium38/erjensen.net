@@ -15,10 +15,6 @@
 </head>
 <body>
     <div id="app">
-        <my-app></my-app>
-    </div>
-
-    <div id="tmp" style="display: none">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">

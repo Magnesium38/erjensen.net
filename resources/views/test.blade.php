@@ -1,4 +1,8 @@
-@extends('layouts.master')
+@extends('layouts.sidebarred')
+
+@section('sidebar')
+    @include('layouts.partials.sidebar')
+@endsection
 
 @section('content')
     @foreach ($endpoints as $endpoint)

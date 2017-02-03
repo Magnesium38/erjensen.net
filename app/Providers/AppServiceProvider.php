@@ -1,6 +1,8 @@
 <?php namespace App\Providers;
 
+use App\Http\ViewComposers\LinkComposer;
 use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider {
@@ -10,6 +12,11 @@ class AppServiceProvider extends ServiceProvider {
      * @return void
      */
     public function boot() {
+        View::composer(
+            ['layouts.partials.header', 'layouts.partials.footer'],
+            LinkComposer::class
+        );
+
     }
 
     /**
