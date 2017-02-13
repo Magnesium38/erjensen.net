@@ -23,7 +23,7 @@ Route::group(['namespace' => 'Api'], function () use ($controllers) {
             Route::get('/', "{$controller}@index");
             Route::get('{id}', "{$controller}@show");
 
-            Route::group(['middleware' => 'auth:api'], function () use ($controller) {
+            Route::group(['middleware' => 'api'], function () use ($controller) {
                 Route::post('/', "{$controller}@store");
                 Route::match(['post', 'patch'], '{id}', "{$controller}@update");
                 Route::delete('{id}', "{$controller}@destroy");

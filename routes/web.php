@@ -20,5 +20,9 @@ $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/test', function() {
     $endpoints = \App\Models\Endpoint::all();
 
+    if (request()->attributes->get('isDemo')) {
+        return 'isDemo';
+    }
+
     return view('test', ['endpoints' => $endpoints]);
-});
+})->middleware('demo');

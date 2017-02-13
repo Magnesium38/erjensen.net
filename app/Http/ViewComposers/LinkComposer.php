@@ -13,12 +13,13 @@ class LinkComposer {
 
     public function compose(View $view) {
         $headerLinks = [
-            $this->createRoute("/docs", "Docs"),
-            $this->createRoute("/blog", "Blog"),
+            $this->createRoute('/', 'Home'),
+            $this->createRoute('/docs', 'Docs'),
+            $this->createRoute('/blog', 'Blog'),
         ];
 
         $footerLinks = [
-
+            $this->createRoute('https://github.com/magnesium38', 'GitHub')
         ];
 
         $view->with('headerLinks', $headerLinks)

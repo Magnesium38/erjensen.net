@@ -1,14 +1,16 @@
-<footer>
+<footer class="page-footer">
     <div class="container">
-        @if (count($footerLinks) > 0)
-        <ul class="footer-nav flex">
-            @foreach($footerLinks as $link)
-                <li class="nav-item">
-                    <a href="{{ $link['route'] }}" class="nav-link">{{ $link['name'] }}</a>
+        <nav>
+            <ul class="nav nav-pills">
+                <li class="footer nav-item copyright">
+                    &copy; Eric Jensen
                 </li>
-            @endforeach
-        </ul>
-        @endif
-        <p class="copyright">&copy; Eric Jensen</p>
+                @foreach($footerLinks as $link)
+                    <li class="footer nav-item">
+                        <a href="{{ $link['route'] }}" class="nav-link">{{ $link['name'] }}</a>
+                    </li>
+                @endforeach
+            </ul>
+        </nav>
     </div>
 </footer>
