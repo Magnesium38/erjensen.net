@@ -34,6 +34,8 @@
             margin-bottom: 0;
             font-size: 3em;
             color: #ffffff;
+
+            text-align: center;
         }
 
         a, a:hover, a:focus {
