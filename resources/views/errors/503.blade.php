@@ -4,15 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#9067c6">
+    <meta name="msapplication-navbutton-color" content="#9067c6">
 
     <!-- CSRF Token -->
     <meta id="csrfToken" name="csrf-token" content="{{ csrf_token() }}">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/img/ico.png" sizes="192x192">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <style>
         html, body {
-            background-color: #2C2645;
+            background-color: #2c2645;
             height: 100%;
         }
 
