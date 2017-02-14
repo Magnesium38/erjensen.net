@@ -26,23 +26,32 @@
         }
 
         img {
-            max-width: 300px;
+            max-width: 200px;
         }
 
         .text {
-            margin: 40px;
-            font-size: 5em;
+            margin-top: 40px;
+            margin-bottom: 0;
+            font-size: 3em;
             color: #ffffff;
+        }
+
+        a, a:hover, a:focus {
+            color: #9067c6;
         }
     </style>
 
-    <title>My title</title>
+    <title>Eric Jensen | Developer</title>
 </head>
 <body>
     <div class="container">
-        <h1 class="text">Under</h1>
         <img src="/img/big.png">
-        <h1 class="text">Construction</h1>
+        <h1 class="text">Under Construction</h1>
+        <h1 class="text">
+            <a href="https://github.com/Magnesium38/erjensen.net">
+                GitHub Source
+            </a>
+        </h1>
     </div>
 </body>
 </html>
