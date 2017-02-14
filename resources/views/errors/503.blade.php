@@ -23,6 +23,8 @@
             height: 100%;
 
             flex-direction: column;
+
+            padding: 50px 5px;
         }
 
         img {
@@ -30,8 +32,7 @@
         }
 
         .text {
-            margin-top: 40px;
-            margin-bottom: 0;
+            margin: 30px 0;
             font-size: 3em;
             color: #ffffff;
 
@@ -47,8 +48,8 @@
 </head>
 <body>
     <div class="container">
-        <img src="/img/big.png">
         <h1 class="text">Under Construction</h1>
+        <img src="/img/big.png">
         <h1 class="text">
             <a href="https://github.com/Magnesium38/erjensen.net">
                 GitHub Source
