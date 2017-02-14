@@ -39,4 +39,12 @@ class Endpoint extends BaseModel {
 
 
     }
+
+    public function slugify() {
+        return str_replace(strtolower($this->action), ' ', '-');
+    }
+
+    public function reference() {
+        return $this->belongsTo(Reference::class);
+    }
 }

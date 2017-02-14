@@ -12,8 +12,6 @@
 </template>
 
 <script>
-    import axios from "axios"
-
     export default {
         name: 'my-app',
         data: function () {

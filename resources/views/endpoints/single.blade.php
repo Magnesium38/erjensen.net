@@ -1,4 +1,4 @@
-<h2>{{ $endpoint->action }}</h2>
+<h2 class="endpoint" id="{{ $endpoint->slugify() }}">{{ $endpoint->action }}</h2>
 
 @foreach(explode('\n', $endpoint->description) as $line)
     <p>{{ $line }}</p>

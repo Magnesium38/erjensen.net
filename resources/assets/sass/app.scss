@@ -19,6 +19,7 @@ nav>ul.nav>li.nav-item {
 
         &:hover, &:focus {
             background-color: inherit;
+            text-decoration: underline;
         }
     }
     
@@ -81,6 +82,15 @@ h2.endpoint {
     list-style: none;
     padding-left: 1em;
     line-height: 2em;
+
+    a {
+        color: #706a7c;
+
+        &:hover, &:focus {
+            color: #6441a4;
+        }
+
+    }
 }
 
 .page-footer {

@@ -1,7 +1,7 @@
-@extends('layouts.sidebarred)
+@extends('layouts.sidebarred')
 
 @section('sidebar')
-    @include('endpoints.sidebar)
+    @include('endpoints.sidebar')
 @endsection
 
 @section('content')
