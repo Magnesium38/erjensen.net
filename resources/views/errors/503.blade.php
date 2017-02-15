@@ -60,5 +60,7 @@
             </a>
         </h1>
     </div>
+
+    @include('layouts.partials.analytics')
 </body>
 </html>
