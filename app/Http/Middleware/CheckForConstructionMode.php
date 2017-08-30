@@ -34,8 +34,6 @@ class CheckForConstructionMode {
         if ($this->app->isDownForMaintenance()) {
             $data = json_decode(file_get_contents($this->app->storagePath().'/framework/down'), true);
 
-            mail('ericjensen@erjensen.net', 'Website hit', $request->ip(), 'From: ericjensen@erjensen.net');
-
             throw new MaintenanceModeException($data['time'], $data['retry'], $data['message']);
         }
 

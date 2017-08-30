@@ -8,3 +8,5 @@ Possibly use Laravel Dusk. (Probably excessive for this project.)
 
 Revisit api versioning.
     Current idea: Controllers\Api\V1 as namespace and route in base namespace.
+
+Extract the google analytics code to .env

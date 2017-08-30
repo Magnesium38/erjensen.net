@@ -31,8 +31,8 @@ class MakeModel extends GeneratorCommand {
      *
      * @return void
      */
-    public function fire() {
-        if (parent::fire() === false) {
+    public function handle() {
+        if (parent::handle() === false) {
             return;
         }
 
